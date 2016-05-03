@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Portal</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ 
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <!-- Navigation -->
+  <div class="navbar yamm navbar-default" id="sticky">
+    <div class="container">
+      <div class="navbar-header">
+      <a href="index.html" class="navbar-brand">         
+        <!-- Logo -->
+        <div id="logo"> 
+         Student Portal
+        </div>
+        </a> 
+        <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+      <div id="navbar-collapse-grid" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="assistance.html">Online Assitance</a>
+            </li>
+            <li class="dropdown">
+                <a href="feedback.html">feedback</a>
+            </li>
+             <li class="dropdown">
+                <a href="schedule.html">Lab hours</a>
+            </li>
+             <li class="dropdown">
+                <a href="request.html">Request</a>
+            </li>
+          <li class="dropdown"> <a href="#" data-toggle="dropdown" class="dropdown-toggle js-activated"><i class="fa fa-user"></i> My Account<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="<%= new_user_session_path %>"><i class="fa fa-user"></i> &nbsp;Student LogIn</a></li>
+              <li><a href="<%= new_user_session_path %>"><i class="fa fa-user"></i> &nbsp;Admin login</a></li>
+            </ul>
+          </li>
+        </ul>
+          
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<%= yield %>
+
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+      <!-- Logo -->
+        <div id="logo"> 
+          <h1>Student Portal</h1>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-12">
+        <a class="footer2" href="index.html"><li>Home</li></a>
+        <a class="footer2" href="#"><li>Online Assitance</li></a>
+        <a class="footer2" href="feedback.html"><li>feedback</li></a>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-12 ">
+        <a class="footer2" href="schedule.html"><li>Lab hours</li></a>
+        <a class="footer2" href="request.html"><li>Request</li></a>
+      </div>
+      <div class="col-md-2 col-sm-3 col-sm-12">
+        <a class="footer2" href="login_signup.html"><li>Student LogIn</li></a>
+        <a class="footer2" href="#"><li>Admin login</li></a>
+      </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6"> &copy; 2016, All Rights Reserved </div>
+        <div class="col-xs-6 text-right">
+          <ul>
+            <li>Developed By:<a href="http://octasolutions.pk/">OctaSolutions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+</body>
+</html>
