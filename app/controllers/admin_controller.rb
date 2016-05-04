@@ -2,6 +2,8 @@ class AdminController < ApplicationController
 	layout 'admin'
   
   def index
+  	@fc= Feedback.all.count
+  	@qc= Question.all.count
   end
   def questions
   	@questions= Question.all.where('id NOT IN (SELECT question_id from answers)')
