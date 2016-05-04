@@ -1,0 +1,106 @@
+<style>
+    .faqHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+
+    .panel-heading [data-toggle="collapse"]:after {
+        /*font-family: 'Glyphicons Halflings';
+        content: "e072"; /* "play" icon */*/
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: #454444;
+    }
+</style>
+<!-- Reservation form -->
+<section id="reservation-form">
+  <div class="container">
+  <% flash.each do |name,msg|%>
+                <%= content_tag :div, msg, class: "alert alert-danger flash-popup", role: "alert" %>
+                <% end %>
+    <div class="row ask-question">
+      <div class="col-sm-12">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Ask Your Question</h4>
+        </div>
+        <%= simple_form_for(@question) do |f| %>
+  <%= f.error_notification %>
+        <div class="modal-body">
+              <div class="form-group">
+              <select class="form-control" name="question[course]" >
+                  <option selected="selected" disabled="disabled">Course</option>
+                  <option value="COSC 1435">COSC 1435</option>
+                  <option value="COSC 1436">COSC 1436</option>
+                  <option value="COSC 2334">COSC 2334</option>
+                  <option value="COSC 2437">COSC 2437</option>
+                  <option value="Other">Other</option>
+                </select>
+            </div>
+          <textarea class="form-control" name="question[content]" rows="3" placeholder="Enter your question here"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Ask Question</button>
+        </div>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rooms -->
+<section class="rooms mt50">
+  <div class="container">
+    <br />
+    <div class="panel-group" id="accordion">
+    <% @questions.each do |question| %>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="<%= "##{question.id}" %>"><%= question.content %></a>
+                </h4>
+            </div>
+            <div id="<%= "#{question.id}" %>" class="panel-collapse collapse in">
+                <div class="panel-body">
+                <% if question.answers.any? %>
+                    <%= question.answers.first.content %>
+                    <% else %>
+                    No Answer Yet!
+                    <% end %>
+
+                </div>
+            </div>
+        </div>
+        <% end %>
+        
+        
+        
+        
+        
+        
+        
+        
+       
+        
+    </div>
+</div>
+</section>
+

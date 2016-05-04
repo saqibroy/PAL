@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
+  resources :questions
+  get 'admin/index'
+
   get 'home/index'
+  get 'home/online_assistance'
+  get 'home/feedback'
+  get 'home/lab_hours'
+   get 'home/requests'
+   get "/admin" => "admin#index", :as => 'admin'
+   get 'admin/feedbacks'
+   get 'admin/questions'
+   get 'admin/answer_new'
+   post 'admin/answer_create'
+   post 'home/feedback_create'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

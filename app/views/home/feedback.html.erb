@@ -1,0 +1,56 @@
+<style>
+   .animated {
+    -webkit-transition: height 0.2s;
+    -moz-transition: height 0.2s;
+    transition: height 0.2s;
+}
+
+.stars
+{
+    margin: 20px 0;
+    font-size: 24px;
+    color: #0067C5;
+}
+.feedback{
+    background-color: #F7FBFC;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+}
+.btn-feedback{
+    background-color: white;
+    border-color: #4cae4c;
+    color:  #0067C5;
+}
+</style>
+
+<section id="reservation-form">
+<div class="container">
+<% flash.each do |name,msg|%>
+                <%= content_tag :div, msg, class: "alert alert-danger flash-popup", role: "alert" %>
+                <% end %>
+    <div class="row" style="margin-top:40px;">
+        <div class="col-md-12">
+        <div class="feedback well-sm">
+            <div class="row" id="post-review-box" >
+                <div class="col-md-12">
+                    <%= simple_form_for(@feedback,:url => home_feedback_create_path, :method => :post) do |f| %>
+                        <input id="ratings-hidden" name="rating" type="hidden"> 
+                        <textarea class="form-control animated" cols="50" id="new-review" name="feedback[content]" placeholder="Enter your review here..." rows="5"></textarea>
+        
+                        <div class="text-right">
+                            <div class="stars starrr" data-rating="0"></div>
+                            <button class="btn btn-feedback btn-lg" type="submit">Save</button>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div> 
+         
+        </div>
+    </div>
+</div>
+</section>
+
