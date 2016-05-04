@@ -13,6 +13,8 @@ Rails.application.routes.draw do
    get 'admin/answer_new'
    post 'admin/answer_create'
    post 'home/feedback_create'
+   get 'admin/reports'
+   post 'admin/reports_data'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

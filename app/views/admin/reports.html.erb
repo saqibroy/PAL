@@ -2,13 +2,13 @@
     <div class="row">
       <ol class="breadcrumb">
         <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-        <li class="active">Answer</li>
+        <li class="active">Reports</li>
       </ol>
     </div><!--/.row-->
     
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">Answer</h1>
+        <h1 class="page-header">Reports</h1>
       </div>
     </div><!--/.row-->
         
@@ -16,17 +16,17 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="panel panel-default">
-          <div class="panel-heading">Answer</div>
+          <div class="panel-heading">Reports</div>
           <div class="panel-body">
             <div class="col-md-12">
-              <%= simple_form_for(@answer,:url => admin_answer_create_path, :method => :post) do |f| %>
+              <%= simple_form_for :report, url: admin_reports_data_path do |f| %>
                 
                 <div class="form-group">
-                  <label><%= @question.content %></label>
-                  <textarea class="form-control" name="answer[content]" rows="5"></textarea>
+                  <label>Date</label>
+                   <%= f.input :date, as: :date,label:false %>
                 </div>
-                 <input type="hidden" name="id" value="<%= @question.id%>">
-                <button type="submit" class="btn btn-primary">Save</button>
+                 
+                <button type="submit" class="btn btn-primary">Submit</button>
             <% end %>
           </div>
         </div>
